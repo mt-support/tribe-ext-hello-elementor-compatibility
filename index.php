@@ -53,7 +53,7 @@ class Tribe__Extension__Hello_Elementor extends Tribe__Extension {
 		$is_hello_elementor_theme = defined( 'HELLO_ELEMENTOR_VERSION' );
 
 		if ( empty( $is_hello_elementor_theme ) ) {
-			return;
+			return $posts;
 		}
 
 		$template = tribe( 'tickets.attendee_registration.template' );
