@@ -56,6 +56,7 @@ class Tribe__Extension__Hello_Elementor extends Tribe__Extension {
 			return $posts;
 		}
 
+		// Prevent fatal when checking the customizer.
 		if ( is_admin() || is_customize_preview() ) {
 			return $posts;
 		}
