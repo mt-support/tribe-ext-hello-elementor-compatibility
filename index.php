@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Event Tickets Extension: Hello Elementor compatibility
  * Description:     Activate alongside Hello Elementor theme.
- * Version:         1.1
+ * Version:         1.2
  * Extension Class: Tribe__Extension__Hello_Elementor
  * Author:          The Events Calendar
  * Author URI:      https://evnt.is/1aor
@@ -58,6 +58,11 @@ class Tribe__Extension__Hello_Elementor extends Tribe__Extension {
 
 		// Prevent fatal when checking the customizer.
 		if ( is_admin() || is_customize_preview() ) {
+			return $posts;
+		}
+
+		// Bail if we don't have access to our singleton yet.
+		if ( ! tribe()->isBound( 'tickets.attendee_registration.template' ) ) {
 			return $posts;
 		}
 
