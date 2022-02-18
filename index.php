@@ -61,6 +61,11 @@ class Tribe__Extension__Hello_Elementor extends Tribe__Extension {
 			return $posts;
 		}
 
+		// Bail if we don't have access to our singleton yet.
+		if ( ! tribe()->isBound( 'tickets.attendee_registration.template' ) ) {
+			return $posts;
+		}
+
 		$template = tribe( 'tickets.attendee_registration.template' );
 
 		// Bail if we're not on the attendee info page.
